@@ -1,0 +1,28 @@
+* {
+  background-color: #bf1e33;
+  font-size: 15px;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+#main {
+  margin: 10px 10px;
+}
+#title {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#tel {
+  margin: 0 15px;
+}
+
+#adress {
+  margin: 15px;
+}
+
+#fodder {
+  margin: 20px 0;
+  font-size: 20px;
+  font-weight: bold;
+}
