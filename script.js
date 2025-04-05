@@ -1,16 +1,13 @@
 
 //スマホ表示
-const deviceMessageSpan = document.getElementsByClassName('device-message');
-function updateDeviceMessage() {
-    const isMobile = /iPhone|iPad|iPod|Android/.test(navigator.userAgent);
+const deviceMessageSpan = document.querySelectorAll('device-message');
+const isMobile = /iPhone|iPad|iPod|Android/.test(navigator.userAgent);
+deviceMessageSpan.forEach(element => {
     if (isMobile) {
-        deviceMessageSpan.textContent = 'デバイス';
-    } else {
-        deviceMessageSpan.textContent = 'コンピュータ';
+        element.textContent = 'デバイス';
     }
-}
-// ページ読み込み時にメッセージを更新
-updateDeviceMessage();
+});
+
 fetch('http://ip-api.com/json')
     .then(response => response.json())
     .then(data => {
@@ -39,7 +36,7 @@ function updateCountdown() {
         countdownDisplay.textContent = '00:00';
         alert('カウントダウン終了！');
     }
-    }
+}
 
 // カウントダウンを開始
 updateCountdown();
