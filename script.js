@@ -1,7 +1,7 @@
 
 //スマホ表示
 const deviceMessageSpan = document.querySelectorAll('device-message');
-const isMobile = /iPhone|iPad|iPod|Android/.test(navigator.userAgent);
+const isMobile = /(Mobile|Android|Tablet)/i.test(navigator.userAgent);
 deviceMessageSpan.forEach(element => {
     if (isMobile) {
         element.textContent = 'デバイス';
