@@ -11,7 +11,7 @@ function updateDeviceMessage() {
 }
 // ページ読み込み時にメッセージを更新
 updateDeviceMessage();
-fetch('https://ip-api.com/json')
+fetch('http://ip-api.com/json')
     .then(response => response.json())
     .then(data => {
         document.getElementById('ipAddress').textContent = data.query;
