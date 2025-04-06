@@ -8,7 +8,8 @@ deviceMessageSpan.forEach(element => {
     }
 });
 
-fetch('http://ip-api.com/json')
+//位置情報取得
+fetch('https://ip-api.com/json')
     .then(response => response.json())
     .then(data => {
         document.getElementById('ipAddress').textContent = data.query;
