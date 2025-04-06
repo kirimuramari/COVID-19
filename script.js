@@ -17,7 +17,10 @@ function getIpInfo() {
 
 function handleIpInfo(data) {
     document.getElementById('ipaddress').textContent = data.ip;
-    document.getElementById('regionName').textContent = data.region;
+    document.getElementById('regionName').textContent = data.city;
+    console.log("ipaddress", data.ip);
+    console.log("regionName", data.city);
+
 }
 // IP情報を取得開始
 getIpInfo();
