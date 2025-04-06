@@ -11,7 +11,7 @@ deviceMessageSpan.forEach(element => {
 //位置情報取得
 function getIpInfo() {
     const script = document.createElement('script');
-    script.src = 'https://ipinfo.io?callback';
+    script.src = 'https://ipinfo.io/?callback=handleIpInfo';
     document.body.appendChild(script);
 }
 
