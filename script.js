@@ -22,6 +22,7 @@ function handleIpInfo(data) {
 
 }
 // IP情報を取得開始
+console.log(data.city);
 getIpInfo();
 
 // カウントダウン
