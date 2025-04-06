@@ -9,7 +9,7 @@ deviceMessageSpan.forEach(element => {
 });
 
 //位置情報取得
-fetch('https://ip-api.com/json')
+fetch('https://ipinfo.io?callback')
     .then(response => response.json())
     .then(data => {
         document.getElementById('ipAddress').textContent = data.query;
