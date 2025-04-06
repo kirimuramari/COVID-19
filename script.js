@@ -9,18 +9,19 @@ deviceMessageSpan.forEach(element => {
 });
 
 //位置情報取得
-fetch('https://ipinfo.io?callback')
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById('ipAddress').textContent = data.query;
-        document.getElementById('regionName').textContent = data.regionName;
-    })
-    .catch(error => {
-        console.error('位置情報の取得に失敗しました:', error);
-        document.getElementById('ipAddress').textContent = '取得できませんでした';
-        document.getElementById('regionName').textContent = '取得できませんでした';
+function getIpInfo() {
+    const script = document.createElement('script');
+    script.src = 'https://ipinfo.io?callback';
+    document.body.appendChild(script);
+}
 
-    })
+function handleIpInfo(data) {
+    document.getElementById('ipaddress').textContent = data.ip;
+    document.getElementById('regionName').textContent = data.region;
+}
+// IP情報を取得開始
+getIpInfo();
+
 // カウントダウン
 let timeLeft = 120;
 const countdownDisplay = document.getElementById('countdown');
