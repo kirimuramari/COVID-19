@@ -8,7 +8,7 @@ function getIpInfo() {
 
 function handleIpInfo(data) {
     console.log(data.ip);
-    document.getElementById('ipaddress').textContent = data.ip;
+    document.getElementById('#ipAddress').textContent = data.ip;
     document.getElementById('regionName').textContent = data.city;
 
 }
