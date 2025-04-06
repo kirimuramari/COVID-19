@@ -1,13 +1,4 @@
 
-//スマホ表示
-const deviceMessageSpan = document.querySelectorAll('device-message');
-const isMobile = /(Mobile|Android|Tablet)/i.test(navigator.userAgent);
-deviceMessageSpan.forEach(element => {
-    if (isMobile) {
-        element.textContent = 'デバイス';
-    }
-});
-
 //位置情報取得
 function getIpInfo() {
     const script = document.createElement('script');
@@ -21,28 +12,41 @@ function handleIpInfo(data) {
     document.getElementById('regionName').textContent = data.city;
 
 }
-// IP情報を取得開始
-console.log(data.city);
-getIpInfo();
 
-// カウントダウン
-let timeLeft = 120;
-const countdownDisplay = document.getElementById('countdown');
-function updateCountdown() {
-    const minutes = Math.floor(timeLeft / 60);
-    const seconds = timeLeft % 60;
+document.addEventListener('DOMContentLoaded', function () {
+    // IP情報を取得開始
+    getIpInfo();
 
-    countdownDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    // カウントダウン
+    let timeLeft = 120;
+    const countdownDisplay = document.getElementById('countdown');
+    function updateCountdown() {
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
 
-    if (timeLeft > 0) {
-        timeLeft--;
-        setTimeout(updateCountdown, 1000); // 1秒ごとに更新
-    } else {
-        countdownDisplay.textContent = '00:00';
-        alert('カウントダウン終了！');
+        countdownDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+        if (timeLeft > 0) {
+            timeLeft--;
+            setTimeout(updateCountdown, 1000); // 1秒ごとに更新
+        } else {
+            countdownDisplay.textContent = '00:00';
+            alert('カウントダウン終了！');
+        }
     }
-}
 
-// カウントダウンを開始
-updateCountdown();
+    // カウントダウンを開始
+    updateCountdown();
+
+    //スマホ表示
+    const deviceMessageSpan = document.querySelectorAll('.device-message');
+    const isMobile = /(Mobile|Android|Tablet)/i.test(navigator.userAgent);
+    deviceMessageSpan.forEach(element => {
+        if (isMobile) {
+            element.textContent = 'デバイス';
+        }
+    });
+});
+
+
 
